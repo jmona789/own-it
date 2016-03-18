@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/jmona789/own-it/issues"
   },
-  "homepage": "https://github.com/jmona789/own-it#readme"
+  "homepage": "https://github.com/jmona789/own-it#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.8",
+    "morgan": "^1.7.0"
+  }
 }
