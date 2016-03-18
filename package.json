@@ -1,0 +1,20 @@
+{
+  "name": "own-it",
+  "version": "1.0.0",
+  "description": "A single page angular app that simulates the ability for user to buy and sell items and list items for sale",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "James Mona",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmona789/own-it.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jmona789/own-it/issues"
+  },
+  "homepage": "https://github.com/jmona789/own-it#readme"
+}
