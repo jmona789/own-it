@@ -24,53 +24,53 @@ body{
 }
 
 label{
-  color:black !important;
+  color:#454544 !important;
 }
 
 .input-field input {
-  border-bottom: 1px solid black;
-  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid #454544;
+  box-shadow: 0 1px 0 0 #454544;
 }
 
 .input-field input[type=text]:focus + label {
-  color: black;
+  color: #454544;
 }
 
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid black;
-  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid #454544;
+  box-shadow: 0 1px 0 0 #454544;
 }
 
 .input-field input[type=password]:focus + label {
-  color: black;
+  color: #454544;
 }
 
 .input-field input[type=password]:focus {
-  border-bottom: 1px solid black;
-  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid #454544;
+  box-shadow: 0 1px 0 0 #454544;
 }
 
 .input-field input[type=email]:focus + label {
-  color: black;
+  color: #454544;
 }
 
 .input-field input[type=email]:focus {
-  border-bottom: 1px solid black;
-  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid #454544;
+  box-shadow: 0 1px 0 0 #454544;
 }
 
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid black;
-  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid #454544;
+  box-shadow: 0 1px 0 0 #454544;
 }
 
 textarea.materialize-textarea:not([readonly]) {
-  border-bottom: 1px solid black;
-  box-shadow: 0 1px 0 0 black;
+  border-bottom: 1px solid #454544;
+  box-shadow: 0 1px 0 0 #454544;
 }
 
 .active{
-  color:black !important;
+  color:#454544 !important;
 }
 
 .card .card-image img{
@@ -82,5 +82,5 @@ textarea.materialize-textarea:not([readonly]) {
 }
 
 button:focus{
-  background-color: black;
+  background-color: #454544;
 }
