@@ -6,6 +6,14 @@ nav{
     );
 }
 
+body{
+  background-image:
+    linear-gradient(
+      to top left, 
+      darkred, orange
+    );
+}
+
 .input-field input[type=text]:focus + label {
   color: green;
 }
