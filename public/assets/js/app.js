@@ -35,13 +35,17 @@ angular.module("ownIt", [])
     };
 
     $scope.addItem = function(){
-      var data = {name: $scope.name, price: $scope.price, desc: $scope.desc}
-      $http({
-        method: "POST",
-        url: "/addItem",
-        data: data
-      }).then(function(result){
-        console.log(result);
+    swal({ title: "Are you sure?",   text: "Are you sure you want to sell this item?",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, sell it!",   closeOnConfirm: false }, 
+
+      function(){   swal("On Sale!", "Your Item is now on sale!", "success"); 
+        var data = {name: $scope.name, price: $scope.price, desc: $scope.desc, ownerId: $scope.userId}
+        $http({
+          method: "POST",
+          url: "/addItem",
+          data: data
+        }).then(function(result){
+          console.log(result);
+        });
       });
     };
   });
