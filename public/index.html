@@ -1,9 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ownIt">
 <head>
   <title>Own It</title>
+  <!-- Materialize Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <!--Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="/assets/js/app.js"></script>
 </head>
 <body>
-
+  <div ng-controller="OwnItController">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Own It</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="waves-effect waves-light modal-trigger" href="#modal1" ng-show="loggedIn">Welcome {{username}}</a></li>
+          <li><a class="waves-effect waves-light modal-trigger" href="#modal1" ng-hide="loggedIn">Register</a></li>
+          <li><a class="waves-effect waves-light modal-trigger" href="#modal2" ng-hide="loggedIn">Log In</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Register Modal-->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Register</h4>
+          <div class="row">
+        <form ng-submit="register()">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="fname" type="text" ng-model="fname">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="lname" type="text" ng-model="lname">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="username" type="text" ng-model="username">
+              <label for="username">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" ng-model="password">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" ng-model="email">
+              <label for="email">Email</label>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button href="#" type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Register</button>
+      </form>
+    </div>
+  </div>
+    <!-- Login Modal -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <form ng-submit="login()">
+          <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="text" ng-model="username">
+                <label for="password">Username</label>
+              </div>
+            </div>
+            <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" ng-model="password">
+              <label for="password">Password</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button href="#" type= "submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Main Content -->
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+  <!-- Materialize Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <!--Custom JS -->
+  <script type="text/javascript" src="/assets/js/modal.js"></script>
 </body>
 </html>
