@@ -25,7 +25,6 @@ app.get("/", function(req, res) {
 });
 
 app.post("/createUser", function(req, res) {
-  console.log(req.body);
   var newUser = new User(req.body);
   newUser.save(function(err, newUser) {
     if (err) {
@@ -50,6 +49,19 @@ app.post("/login", function(req, res) {
       res.send(user);
     }
   })
+});
+
+app.post("/addItem", function(req, res) {
+  console.log(req.body);
+  var newItem = new Item(req.body);
+  newItem.save(function(err, newItem) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      res.send(newItem);
+    }
+  });
 });
 
 //Listen

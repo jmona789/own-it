@@ -5,7 +5,7 @@ var itemSchema = new Schema({
   name: String,
   price: Number,
   desc: String,
-  userId: {
+  ownerId: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },

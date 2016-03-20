@@ -4,6 +4,8 @@
   <title>Own It</title>
   <!-- Materialize Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--Custom CSS -->
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
   <!-- Angular -->
@@ -11,11 +13,12 @@
   <script type="text/javascript" src="/assets/js/app.js"></script>
 </head>
 <body>
+  <!-- Navbar -->
   <div ng-controller="OwnItController">
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Own It</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="right">
           <li><a class="waves-effect waves-light modal-trigger" href="#modal1" ng-show="loggedIn">Welcome {{username}}</a></li>
           <li><a class="waves-effect waves-light modal-trigger" href="#modal1" ng-hide="loggedIn">Register</a></li>
           <li><a class="waves-effect waves-light modal-trigger" href="#modal2" ng-hide="loggedIn">Log In</a></li>
@@ -27,73 +30,137 @@
         <div class="modal-content">
           <h4>Register</h4>
           <div class="row">
-        <form ng-submit="register()">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="fname" type="text" ng-model="fname">
-              <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="lname" type="text" ng-model="lname">
-              <label for="last_name">Last Name</label>
-            </div>
+            <form ng-submit="register()">
+              <div class="row">
+                <div class="input-field col s6 m6 l6">
+                  <input id="fname" type="text" ng-model="fname">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                  <input id="lname" type="text" ng-model="lname">
+                  <label for="last_name">Last Name</label>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                  <input id="username" type="text" ng-model="username">
+                  <label for="username">Username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m12 l12">
+                  <input id="password" type="password" ng-model="password">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m12 l12">
+                  <input id="email" type="email" ng-model="email">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button href="#" type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Register</button>
+              </div>
+            </form>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="username" type="text" ng-model="username">
-              <label for="username">Username</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" ng-model="password">
-              <label for="password">Password</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" ng-model="email">
-              <label for="email">Email</label>
-            </div>
-          </div>
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button href="#" type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Register</button>
-      </form>
-    </div>
-  </div>
-    <!-- Login Modal -->
-    <div id="modal2" class="modal">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <form ng-submit="login()">
-          <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="text" ng-model="username">
-                <label for="password">Username</label>
+      <!-- Login Modal -->
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Log In</h4>
+          <form ng-submit="login()">
+            <div class="row">
+              <div class="input-field col s12 m12 l12">
+                <input id="username" type="text" ng-model="username">
+                <label for="username">Username</label>
               </div>
             </div>
             <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" ng-model="password">
-              <label for="password">Password</label>
+              <div class="input-field col s12 m12 l12">
+                <input id="password" type="password" ng-model="password">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button href="#" type= "submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Log In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <!-- Main Content -->
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <h1>Own it</h1>
+          <h6>Welcome to Own It, the one stop shop for all your online shopping and selling needs.</h6>
+        </div>
+      </div>
+      <!-- Cards -->
+      <div class="section">
+        <div class="row">
+        <!-- Browse Card -->
+          <div class="col s12 m12 l6" >
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/images/browse.jpg">
+              </div>
+              <div class="card-content activator">
+                <span class="card-title activator grey-text text-darken-4">Browse<i class="fa fa-arrow-up right"></i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Browse Items<i class="fa fa-times right"></i></span>
+                <p>Items For Sale</p>
+              </div>
+            </div>
+          </div>
+          <!-- Sell Card -->
+          <div class="col s12 m12 l6" >
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/images/sell.jpg">
+              </div>
+              <div class="card-content activator">
+                <span class="card-title activator grey-text text-darken-4">Sell<i class="fa fa-arrow-up right"></i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">List an Item For Sale<i class="fa fa-times right"></i></span>
+                <p>Use the following form to list your item for sale.</p>
+                <form ng-submit="addItem()">
+                  <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                      <input id="name" type="text" ng-model="name">
+                      <label for="name">Item Name</label>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                      <input id="price" type="text" ng-model="price">
+                      <label for="price">Price</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                      <textarea id="desc" class="materialize-textarea" ng-model="desc"></textarea>
+                      <label for="desc">Description</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                      <button href="#" type="submit" class="waves-effect waves-green btn-flat right" ng-show="userId">Sell Item</button>
+                      <a class=" btn-flat right addItemDisabledBtn disabled" ng-hide="userId">Sell Item</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button href="#" type= "submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-  <!-- Main Content -->
-  
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
   <!-- Materialize Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <!--Custom JS -->
-  <script type="text/javascript" src="/assets/js/modal.js"></script>
+  <script type="text/javascript" src="/assets/js/custom.js"></script>
 </body>
 </html>

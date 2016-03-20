@@ -32,3 +32,15 @@ nav{
   border-bottom: 1px solid green;
   box-shadow: 0 1px 0 0 green;
 }
+
+.card .card-image img{
+ height: 418px;
+}
+
+.container{
+  width: 90%;
+}
+
+button:focus{
+  background-color: white;
+}

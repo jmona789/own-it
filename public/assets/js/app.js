@@ -33,4 +33,15 @@ angular.module("ownIt", [])
         $scope.ownedItems = result.data.ownedItems;
       });
     };
+
+    $scope.addItem = function(){
+      var data = {name: $scope.name, price: $scope.price, desc: $scope.desc}
+      $http({
+        method: "POST",
+        url: "/addItem",
+        data: data
+      }).then(function(result){
+        console.log(result);
+      });
+    };
   });
