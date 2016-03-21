@@ -94,6 +94,14 @@ app.post("/buyItem/:id", function(req, res){
       if (err){
         console.log(err);
       }else {
+        Item.findOne({_id: req.body.itemId}).exec(function(err, item){
+          console.log("Item price:")
+          console.log(item.price)
+          console.log("doc.wallet:")
+          console.log(doc.wallet);
+          User.findOneAndUpdate({_id: req.params.id}, {wallet: Number(doc.wallet) - Number(item.price)}, function(err, doc) {
+          })
+        })
       res.send(doc);
     }
   });

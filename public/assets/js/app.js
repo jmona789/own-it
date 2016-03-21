@@ -83,7 +83,8 @@ angular.module("ownIt", [])
         url: "/buyItem/" + $scope.userId,
         data: data
       }).then (function (result){
-        console.log(result.data);
+        console.log("result.data.wallet:");
+        console.log(result.data.wallet);
         // $scope.wallet = result.data.wallet;
       });
       }
