@@ -132,10 +132,10 @@
               <div class="card-reveal gradient">
                 <span class="card-title grey-text text-darken-4">Browse Items<i class="fa fa-times right"></i></span>
                 <p>Items For Sale</p>
-                <div class="row" ng-repeat="item in items" ng-show="item.forSale">
+                <div class="row" ng-repeat="item in items" ng-hide="!item.forSale">
                   <p class="item">{{item.name}} <span class="price"> Price: {{item.price | currency}}</span></p>
                   <p class="item">{{item.desc}}</p>
-                  <a class="waves-effect waves-light btn btnGradient item purchaseBtn" ng-click="buyItem(item._id)">Purchase</a>
+                  <a class="waves-effect waves-light btn btnGradient item purchaseBtn" ng-click="buyItem(item._id, $index)">Purchase</a>
                 </div>
               </div>
             </div>

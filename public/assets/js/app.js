@@ -81,20 +81,21 @@ angular.module("ownIt", [])
       });
     };
 
-     $scope.buyItem = function(itemId){
+     $scope.buyItem = function(itemId, index){
       if ($scope.userId === undefined){
         swal({title: "Error!",   text: "You need to be logged in to buy an item!",   type: "error",   confirmButtonText: "Okay" });
       }else{
+        $scope.items[index].forSale = false;
         var data = {itemId: itemId};
-      $http({
-        method: "POST",
-        url: "/buyItem/" + $scope.userId,
-        data: data
-      }).then (function (result){
-        console.log("result.data");
-        console.log(result.data);
-        // $scope.wallet = result.data.wallet;
-      });
+        $http({
+          method: "POST",
+          url: "/buyItem/" + $scope.userId,
+          data: data
+        }).then (function (result){
+          console.log("result.data");
+          console.log(result.data);
+          // $scope.wallet = result.data.wallet;
+        });
       }
     };
 

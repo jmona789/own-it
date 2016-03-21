@@ -90,15 +90,25 @@ app.post("/addMoney/:id", function(req, res){
 app.post("/buyItem/:id", function(req, res){
   console.log("req.body:")
   console.log(req.body)
+  //push item into owned items array of buyer
   User.findOneAndUpdate({_id: req.params.id}, {$push: {ownedItems: req.body.itemId}}, {safe: true, upsert: true}, function(err, doc) {
       if (err){
         console.log(err);
       }else {
         Item.findOneAndUpdate({_id: req.body.itemId}, {forSale: false}).exec(function(err, item){
-          console.log("Item price:")
-          console.log(item.price)
-          console.log("doc.wallet:")
-          console.log(doc.wallet);
+          // console.log("ownerId:")
+          // console.log(item.ownerId)
+          // console.log("item.price:")
+          // console.log(item.price);
+          //add money to seller's wallet
+          User.find({_id: item.ownerId}, function(err, seller) {
+            console.log(seller)
+            console.log(seller.wallet);
+            console.log(item.price);
+            User.findOneAndUpdate({_id: item.ownerId}, {wallet: Number(seller.wallet) + Number(item.price)}, function(err, doc) {
+            })
+          })
+          //remove money form purchaser's wallet
           User.findOneAndUpdate({_id: req.params.id}, {wallet: Number(doc.wallet) - Number(item.price)}, function(err, doc) {
           })
         })
