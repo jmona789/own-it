@@ -94,7 +94,7 @@ app.post("/buyItem/:id", function(req, res){
       if (err){
         console.log(err);
       }else {
-        Item.findOne({_id: req.body.itemId}).exec(function(err, item){
+        Item.findOneAndUpdate({_id: req.body.itemId}, {forSale: false}).exec(function(err, item){
           console.log("Item price:")
           console.log(item.price)
           console.log("doc.wallet:")

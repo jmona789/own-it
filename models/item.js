@@ -5,6 +5,7 @@ var itemSchema = new Schema({
   name: String,
   price: Number,
   desc: String,
+  forSale: Boolean,
   ownerId: {
     type: Schema.Types.ObjectId,
     ref: "User"

@@ -36,19 +36,26 @@ angular.module("ownIt", [])
     };
 
     $scope.addItem = function(){
-    swal({ title: "Are you sure?",   text: "Are you sure you want to sell this item?",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, sell it!",   closeOnConfirm: false }, 
+      if ($scope.name === undefined || $scope.price === undefined || $scope.desc === undefined){
+          swal({title: "Error!",   text: "Please fill out all fields.",   type: "error",   confirmButtonText: "Okay" });
+      }else if (isNaN($scope.price)){
+        swal({title: "Error!",   text: "Please enter only numbers for the price of the item",   type: "error",   confirmButtonText: "Okay" });
+      }
+      else{
+        swal({ title: "Are you sure?",   text: "Are you sure you want to sell this item?",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, sell it!",   closeOnConfirm: false }, 
 
-      function(){   swal("On Sale!", "Your Item is now on sale!", "success"); 
-        var data = {name: $scope.name, price: $scope.price, desc: $scope.desc, ownerId: $scope.userId}
-        $http({
-          method: "POST",
-          url: "/addItem",
-          data: data
-        }).then(function(result){
-          console.log(result);
-          $scope.items.push(result.data);
+        function(){   swal("On Sale!", "Your Item is now on sale!", "success"); 
+          var data = {name: $scope.name, price: $scope.price, desc: $scope.desc, ownerId: $scope.userId, forSale: true}
+          $http({
+            method: "POST",
+            url: "/addItem",
+            data: data
+          }).then(function(result){
+            console.log(result);
+            $scope.items.push(result.data);
+          });
         });
-      });
+      }
     };
 
     $scope.getItems = function() {
@@ -70,6 +77,7 @@ angular.module("ownIt", [])
         data: data
       }).then (function (result){
         $scope.wallet = result.data.wallet;
+        $scope.addAmount = undefined;
       });
     };
 
@@ -83,8 +91,8 @@ angular.module("ownIt", [])
         url: "/buyItem/" + $scope.userId,
         data: data
       }).then (function (result){
-        console.log("result.data.wallet:");
-        console.log(result.data.wallet);
+        console.log("result.data");
+        console.log(result.data);
         // $scope.wallet = result.data.wallet;
       });
       }
