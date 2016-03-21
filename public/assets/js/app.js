@@ -1,5 +1,6 @@
 angular.module("ownIt", [])
   .controller("OwnItController", function($http, $scope) {
+    $scope.items = [];
     $scope.register = function(){
       var data = {
         fname: $scope.fname,
@@ -45,7 +46,48 @@ angular.module("ownIt", [])
           data: data
         }).then(function(result){
           console.log(result);
+          $scope.items.push(result.data);
         });
       });
     };
+
+    $scope.getItems = function() {
+      $http({
+        method: 'GET',
+        url: '/items'
+      }).then (function (result){
+        angular.forEach(result.data, function (eachOne){
+          $scope.items.push(eachOne);
+        });
+      });
+    };
+
+    $scope.addMoney = function(){
+      var data = {wallet : Number($scope.addAmount) + Number($scope.wallet)};
+      $http({
+        method: "POST",
+        url: "/addMoney/" + $scope.userId,
+        data: data
+      }).then (function (result){
+        $scope.wallet = result.data.wallet;
+      });
+    };
+
+     $scope.buyItem = function(itemId){
+      if ($scope.userId === undefined){
+        swal({title: "Error!",   text: "You need to be logged in to buy an item!",   type: "error",   confirmButtonText: "Okay" });
+      }else{
+        var data = {itemId: itemId};
+      $http({
+        method: "POST",
+        url: "/buyItem/" + $scope.userId,
+        data: data
+      }).then (function (result){
+        console.log(result.data);
+        // $scope.wallet = result.data.wallet;
+      });
+      }
+    };
+
+    $scope.getItems();
   });

@@ -6,13 +6,36 @@ nav{
     );
 }
 
+.brand-logo{
+  margin-left: 20px;
+}
+
+p:first-letter{
+  text-transform: uppercase;
+}
+
+.price{
+  margin-left: 10px;
+}
 
 .gradient{
-  background-image:
+  background-image: 
     linear-gradient(
       to right, 
       #FF4536, #f06d06
     );
+}
+
+.btnGradient{
+  background-image:
+    linear-gradient(
+      to left, 
+      darkred, #f06d06
+    );
+}
+
+.item{
+  margin-left: 20px;
 }
 
 body{
@@ -21,6 +44,16 @@ body{
       to top left, 
       darkred, orange
     );
+}
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 label{
@@ -71,10 +104,6 @@ textarea.materialize-textarea:not([readonly]) {
 
 .active{
   color:#454544 !important;
-}
-
-.card .card-image img{
- height: 418px;
 }
 
 .container{

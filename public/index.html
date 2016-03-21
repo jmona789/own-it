@@ -19,9 +19,10 @@
   <div ng-controller="OwnItController">
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Own It</a>
+        <a class="brand-logo">Own It</a>
         <ul id="nav-mobile" class="right">
-          <li><a class="waves-effect waves-light modal-trigger" href="#modal1" ng-show="loggedIn">Welcome {{username}}</a></li>
+          <li ng-show="loggedIn">Welcome {{username}}</li>
+          <li><a class="waves-effect waves-light modal-trigger" href="#modal3" ng-show="loggedIn">My Account</a></li>
           <li><a class="waves-effect waves-light modal-trigger" href="#modal1" ng-hide="loggedIn">Register</a></li>
           <li><a class="waves-effect waves-light modal-trigger" href="#modal2" ng-hide="loggedIn">Log In</a></li>
         </ul>
@@ -89,11 +90,30 @@
           </form>
         </div>
       </div>
+    <!-- My Account Modal -->
+    <div id="modal3" class="modal gradient">
+        <div class="modal-content">
+          <h4>My Account</h4>
+          <p> Your wallet currently has: {{wallet || "0" |currency}}</p>
+          <form ng-submit="addMoney()">
+            <div class="row">
+              <p> Add money to your wallet:</p>
+              <div class="input-field col s12 m12 l12">
+                <input id="addAmount" type="text" ng-model="addAmount">
+                <label for="addAmount">Amount</label>
+              </div>
+            </div>
+            <div class="modal-footer gradient">
+              <button href="#" type= "submit" class="modal-action modal-close waves-effect waves-green btn-flat">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
     <!-- Main Content -->
     <div class="container">
       <div class="section">
         <div class="row">
-          <h1>Own it</h1>
+          <h3>Own it</h3>
           <h6>Welcome to Own It, the one stop shop for all your online shopping and selling needs.</h6>
         </div>
       </div>
@@ -112,6 +132,11 @@
               <div class="card-reveal gradient">
                 <span class="card-title grey-text text-darken-4">Browse Items<i class="fa fa-times right"></i></span>
                 <p>Items For Sale</p>
+                <div class="row" ng-repeat="item in items">
+                  <p class="item">{{item.name}} <span class="price"> Price: {{item.price | currency}}</span></p>
+                  <p class="item">{{item.desc}}</p>
+                  <a class="waves-effect waves-light btn btnGradient item purchaseBtn" ng-click="buyItem(item._id)">Purchase</a>
+                </div>
               </div>
             </div>
           </div>
@@ -119,7 +144,7 @@
           <div class="col s12 m12 l6" >
             <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/images/sell.jpg">
+                <img class="activator responsive-img" src="/assets/images/sell.jpg">
               </div>
               <div class="card-content activator gradient">
                 <span class="card-title activator grey-text text-darken-4">Sell<i class="fa fa-arrow-up right"></i></span>

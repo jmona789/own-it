@@ -64,6 +64,41 @@ app.post("/addItem", function(req, res) {
   });
 });
 
+app.get("/items", function(req, res) {
+  console.log(req.body);
+  Item.find(function(err, docs){
+    if (err){
+      console.log(err);
+      res.send(err);
+    } else {
+      res.send(docs);
+    }
+  });
+});
+
+app.post("/addMoney/:id", function(req, res){
+  console.log(req.body)
+  User.findOneAndUpdate({_id: req.params.id}, {wallet: req.body.wallet}, {new: true}, function(err, doc){
+    if (err){
+      res.send(err);
+    } else {
+      res.send(doc);
+    }
+  });
+});
+
+app.post("/buyItem/:id", function(req, res){
+  console.log("req.body:")
+  console.log(req.body)
+  User.findOneAndUpdate({_id: req.params.id}, {$push: {ownedItems: req.body.itemId}}, {safe: true, upsert: true}, function(err, doc) {
+      if (err){
+        console.log(err);
+      }else {
+      res.send(doc);
+    }
+  });
+});
+
 //Listen
 app.listen(PORT, function() {
   console.log("LISTENING ON %s", PORT);
